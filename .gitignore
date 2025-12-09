@@ -1,0 +1,6 @@
+ml-model/bert_priority_model/
+ml-model/results/
+*.safetensors
+*.pt
+*.pkl
+node_modules/

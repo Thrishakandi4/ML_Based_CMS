@@ -1,0 +1,174 @@
+.navTitle {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.navButton {
+  padding: 8px 20px;
+  border-radius: 6px;
+  border: none;
+  background: #011425;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-left: 8px;
+}
+
+.navButton:hover {
+  background: #011425;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #1f4959;
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 10px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.navbar button {
+  padding: 8px 20px;
+  border-radius: 6px;
+  border: none;
+  background:  #011425;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.navbar button:hover {
+  background: #011425;
+}
+
+.navbar .logout {
+  background: #dc3545;
+  margin-left: auto;
+}
+.navbar .logout:hover {
+  background: #a71d2a;
+}
+.container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 40px;
+  background:#011425 ;
+  min-height: 100vh;
+   
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #000000 0%, #1a1a1a 100%);
+  color: #ffffff;
+  padding: 20px 30px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  border: 1.5px solid #333;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.logout {
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  padding: 10px 24px;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.logout:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.card {
+  background-color: #1f4959;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 1500px;
+  border: 1px solid #444;
+}
+
+.card h2 {
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.selectFilter {
+  padding: 8px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #3d3d3d;
+  color: #ffffff;
+  border: 1px solid #555;
+}
+
+.tableWrapper {
+  max-height: 400px;
+  overflow-y: auto; /* vertical scroll */
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #011425;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  border-bottom: 1px solid #444;
+  text-align: left;
+  color: #ffffff;
+}
+
+.table th {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  position: sticky;
+  top: 0; /* keeps header visible */
+  border: 1px solid #555;
+}
+
+ 
+.table select {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #3d3d3d;
+  color: #ffffff;
+  border: 1px solid #555;
+}
+
+.table button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  border: 1px solid #1f4959;
+  background-color: #1f4959;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.table button:hover {
+  background-color: #1f4959;
+}

@@ -1,0 +1,171 @@
+/* Container for the whole dashboard */
+ 
+.container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background:  #011425 ;
+  width: 100%;
+  height: 810px;
+
+  
+}
+
+/* Navigation bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1f4959;
+  padding: 20px 40px;
+  gap: 20px;
+  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.8);
+  border-bottom: 2px solid #333;
+}
+
+.navLeft {
+  display: flex;
+  gap: 10px;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #ffffff;
+}
+
+.navRight h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.navButton {
+  padding: 12px 28px;
+  border: 2px solid #1f4959;
+  background-color: #011425;
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+.navButton:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.navButton.active {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.3);
+}
+
+.logout {
+  background-color: #011425;
+  border: 2px solid #1f4959;
+  padding: 10px 24px;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.logout:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+}
+
+/* Main layout */
+.main {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  width: 95%;
+}
+
+/* Card style for form */
+.card {
+  background-color:#1f4959;
+  padding: 20px;
+   width: auto;
+   max-width: none;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid #444;
+}
+
+/* Specific styling for the form card to reduce width and center */
+.formCard {
+  width: 40%;
+  
+  /* Increased max-width to allow a wider form on larger screens */
+  max-width: 1100px; /* increased width for form */
+}
+
+.tableCard {
+  width: 100%;
+  /* Allow table card to use the full width of the parent (no cap) */
+  max-width: none;
+  /* Ensure it stretches inside the flex parent */
+  align-self: stretch;
+  /* Keep no constrained height so page scrolls naturally */
+  overflow-y: visible;
+  max-height: none;
+}
+
+/* Buttons inside cards */
+.button {
+  margin-top: 10px;
+  background-color: #011425;
+  color: #ffffff;
+  border: 1px solid #666;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: #555555;
+}
+
+/* Optional: adjust grid inside table card if needed */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #011425;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  border-bottom: 1px solid #444;
+  text-align: left;
+  color: #ffffff;
+}
+
+.table th {
+  background-color: #011425;
+  color: #ffffff;
+  border: 1px solid #555;
+}
+
+.table tr:hover {
+  background-color: #3d3d3d;
+}
+.hidden {
+  display: none !important;
+}

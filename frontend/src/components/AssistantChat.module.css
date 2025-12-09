@@ -1,0 +1,111 @@
+.fabContainer {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+}
+
+.fab {
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  font-size: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.fab:hover {
+  background: #222;
+}
+
+.chatBox {
+  width: 340px;
+  max-height: 480px;
+  background: #fff;
+  color: #111;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border: 1px solid #222;
+}
+
+.header {
+  background: #111;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.closeBtn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.messages {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.userMsg {
+  align-self: flex-end;
+  background: #111;
+  color: #fff;
+  padding: 0.5rem 0.9rem;
+  border-radius: 16px 16px 4px 16px;
+  max-width: 80%;
+  word-break: break-word;
+}
+
+.assistantMsg {
+  align-self: flex-start;
+  background: #eee;
+  color: #111;
+  padding: 0.5rem 0.9rem;
+  border-radius: 16px 16px 16px 4px;
+  max-width: 80%;
+  word-break: break-word;
+}
+
+.inputRow {
+  display: flex;
+  border-top: 1px solid #ddd;
+  background: #fff;
+}
+.input {
+  flex: 1;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  outline: none;
+  background: #fff;
+  color: #111;
+}
+.sendBtn {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 0 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.sendBtn:disabled {
+  background: #444;
+  cursor: not-allowed;
+}

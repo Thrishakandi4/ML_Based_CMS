@@ -1,0 +1,159 @@
+.listContainer {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  color: #ffffff;
+   
+}
+
+/* WRAPPER: vertical scroll only */
+.tableWrapper {
+  max-height: 450px;       /* control this to show desired rows before scrollbar */
+  overflow-y: auto;
+  overflow-x: hidden;      /* important — hide horizontal scroll */
+  margin-top: 0;
+  border-radius: 12px;
+  border: 1.5px solid #3a3a3a;
+  background: #252525;
+}
+
+/* TABLE fits container, fixed layout prevents horizontal overflow */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; 
+  background-color: #011425 ;/* key to prevent horizontal scroll */
+}
+
+/* HEADERS */
+.table th {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 16px 12px;
+  text-align: left;
+  font-weight: 700;
+  border: 1px solid #3a3a3a;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+}
+
+/* CELLS */
+.table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #3a3a3a;
+  vertical-align: middle;
+  word-wrap: break-word; /* allow wrap within fixed layout */
+  color: #e8e8e8;
+  font-size: 14px;
+}
+
+/* truncate long text with ellipsis where specified */
+.titleCell, .descriptionCell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* single line with ellipsis */
+}
+
+/* make description allow a bit more width but still ellipsize */
+.descriptionCell {
+  white-space: nowrap;
+}
+
+/* For small screens: allow description to wrap instead of forcing horizontal scroll */
+@media (max-width: 700px) {
+  .descriptionCell {
+    white-space: normal; /* wrap on small screens */
+  }
+}
+
+/* hover row */
+.table tr:hover {
+  background-color: #011425 ;
+}
+
+/* buttons */
+.button {
+  margin-right: 5px;
+  padding: 6px 10px;
+  border: 1px solid #666;
+  background-color: #1f4959;
+  color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.button:hover {
+  background-color: #555555;
+}
+
+.buttonCancel {
+  padding: 6px 10px;
+  border: 1px solid #666;
+  background-color: #1f4959;
+  color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.buttonCancel:hover {
+  background-color: #666666;
+}
+
+/* status badges */
+.status {
+  padding: 5px 8px;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.pending { background-color: #1f4959; }
+.in-progress { background-color: #1f4959; }
+.resolved { background-color: #1f4959; }
+.closed { background-color: #1f4959; }
+
+/* input/select/textarea styles used in edit row */
+.input, .select, .textarea {
+  width: 100%;
+  padding: 6px;
+  box-sizing: border-box;
+  background-color: #3d3d3d;
+  color: #ffffff;
+  border: 1px solid #555;
+}
+.statsCardContainer {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0 25px 0;
+}
+
+.statsCard {
+  flex: 1;
+  background: #011425 ;
+  border: 1.5px solid #3a3a3a;
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+  color: #ffffff;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.statsCard h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #e8e8e8;
+}
+
+.statsCard p {
+  font-size: 26px;
+  font-weight: bold;
+  margin: 0;
+  color: #ffffff;
+}
+
+.statsCard:hover {
+  transform: translateY(-4px);
+  background: #242424;
+}
