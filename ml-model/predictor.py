@@ -6,8 +6,13 @@ import joblib
 # Force CPU if no GPU is available
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+
 # Load model directory
 model_dir = "./bert_priority_model"
+
+# Debug print to verify model files
+import os
+print("Model files in bert_priority_model:", os.listdir(model_dir))
 
 # Load tokenizer + model + label encoder
 tokenizer = BertTokenizer.from_pretrained(model_dir)
