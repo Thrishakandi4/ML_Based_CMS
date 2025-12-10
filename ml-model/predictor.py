@@ -7,13 +7,13 @@ import joblib
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
-# Use a smaller model from HuggingFace Hub
-model_name = "distilbert-base-uncased"
+# Use the smallest BERT model from HuggingFace Hub
+model_name = "prajjwal1/bert-tiny"
 
 # Load tokenizer + model
-from transformers import DistilBertTokenizer, DistilBertForSequenceClassification
-tokenizer = DistilBertTokenizer.from_pretrained(model_name)
-model = DistilBertForSequenceClassification.from_pretrained(model_name)
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForSequenceClassification.from_pretrained(model_name)
 model.to(device)
 model.eval()  # Set model to evaluation mode
 
