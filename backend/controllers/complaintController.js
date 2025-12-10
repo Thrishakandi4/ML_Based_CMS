@@ -23,7 +23,7 @@ export const createComplaint = async (req, res) => {
   // 🔥 Step 1: CALL ML MODEL (Flask API)
   try {
     const mlRes = await axios.post(
-      "http://localhost:5001/predict",
+      "https://ml-based-cms-ml-model.onrender.com/predict",
       { complaint_text: description },
       { timeout: 5000 } // 5 seconds
     );
