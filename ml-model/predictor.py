@@ -7,25 +7,15 @@ import joblib
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
-# Load model from HuggingFace Hub
-model_dir = "thrisha-kandi/bert-priority-model"
+# Use a smaller model from HuggingFace Hub
+model_name = "distilbert-base-uncased"
 
 # Load tokenizer + model
-tokenizer = BertTokenizer.from_pretrained(model_dir)
-model = BertForSequenceClassification.from_pretrained(model_dir)
+from transformers import DistilBertTokenizer, DistilBertForSequenceClassification
+tokenizer = DistilBertTokenizer.from_pretrained(model_name)
+model = DistilBertForSequenceClassification.from_pretrained(model_name)
 model.to(device)
 model.eval()  # Set model to evaluation mode
-
-# Download label_encoder.pkl from HuggingFace Hub
-import requests
-import joblib
-label_encoder_url = f"https://huggingface.co/{model_dir}/resolve/main/label_encoder.pkl"
-label_encoder_path = "label_encoder.pkl"
-if not os.path.exists(label_encoder_path):
-    r = requests.get(label_encoder_url)
-    with open(label_encoder_path, "wb") as f:
-        f.write(r.content)
-label_encoder = joblib.load(label_encoder_path)
 
 
 def predict_priority(complaint_text):
