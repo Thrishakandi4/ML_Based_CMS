@@ -20,7 +20,7 @@ export const createComplaint = async (req, res) => {
   let priority = "Medium";            // default fallback
   let priority_confidence = null;     // may remain null
 
-  // 🔥 Step 1: CALL ML MODEL (Flask API)
+  // 🔥 Step 1: CALL ML MODEL(Flask API)
   try {
     const mlRes = await axios.post(
       "https://ml-based-cms-ml-model.onrender.com/predict",
