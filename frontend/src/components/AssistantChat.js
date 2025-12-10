@@ -1,4 +1,6 @@
+
 import React, { useState, useRef, useEffect } from "react";
+import API_URL from "../api";
 import styles from "./AssistantChat.module.css";
 
 const AssistantChat = () => {
@@ -26,7 +28,7 @@ const AssistantChat = () => {
     try {
       // Get JWT token from localStorage (assumes it's stored as 'token')
       const token = localStorage.getItem("token");
-      const res = await fetch("/api/assistant", {
+      const res = await fetch(`${API_URL}/assistant`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
