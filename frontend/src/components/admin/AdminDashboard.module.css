@@ -125,7 +125,7 @@
 
 .tableWrapper {
   max-height: 400px;
-  overflow-y: auto; /* vertical scroll */
+  overflow-y: auto; 
 }
 
 .table {
@@ -146,7 +146,7 @@
   background-color: #1a1a1a;
   color: #ffffff;
   position: sticky;
-  top: 0; /* keeps header visible */
+  top: 0; 
   border: 1px solid #555;
 }
 

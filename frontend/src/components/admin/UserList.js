@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import API_URL from "../../api";
 
 function UserList() {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers]=useState([]);
 
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchUsers=async () => {
       try {
-        const res = await fetch(`${API_URL}/admin/users`);
-        const data = await res.json();
+        const res=await fetch(`${API_URL}/admin/users`);
+        const data=await res.json();
         setUsers(data);
       } catch (err) {
         console.error(err);

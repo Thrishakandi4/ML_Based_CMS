@@ -3,14 +3,14 @@ import React, { useState, useRef, useEffect } from "react";
 import API_URL from "../api";
 import styles from "./AssistantChat.module.css";
 
-const AssistantChat = () => {
-  const [open, setOpen] = useState(false);
-  const [input, setInput] = useState("");
-  const [messages, setMessages] = useState([
+const AssistantChat=() => {
+  const [open, setOpen]=useState(false);
+  const [input, setInput]=useState("");
+  const [messages, setMessages]=useState([
     { role: "assistant", content: "Hi! I’m your CMS assistant. How can I help you today?" }
   ]);
-  const [loading, setLoading] = useState(false);
-  const messagesEndRef = useRef(null);
+  const [loading, setLoading]=useState(false);
+  const messagesEndRef=useRef(null);
 
   useEffect(() => {
     if (open && messagesEndRef.current) {
@@ -18,17 +18,17 @@ const AssistantChat = () => {
     }
   }, [messages, open]);
 
-  const sendMessage = async (e) => {
+  const sendMessage=async (e) => {
     e.preventDefault();
     if (!input.trim()) return;
-    const userMsg = { role: "user", content: input };
+    const userMsg={ role: "user", content: input };
     setMessages((msgs) => [...msgs, userMsg]);
     setInput("");
     setLoading(true);
     try {
-      // Get JWT token from localStorage (assumes it's stored as 'token')
-      const token = localStorage.getItem("token");
-      const res = await fetch(`${API_URL}/assistant`, {
+
+      const token=localStorage.getItem("token");
+      const res=await fetch(`${API_URL}/assistant`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -36,7 +36,7 @@ const AssistantChat = () => {
         },
         body: JSON.stringify({ message: input })
       });
-      const data = await res.json();
+      const data=await res.json();
       setMessages((msgs) => [...msgs, { role: "assistant", content: data.reply || data.error || "Sorry, I couldn’t reach the assistant." }]);
     } catch (err) {
       setMessages((msgs) => [...msgs, { role: "assistant", content: "Sorry, I couldn’t reach the assistant." }]);

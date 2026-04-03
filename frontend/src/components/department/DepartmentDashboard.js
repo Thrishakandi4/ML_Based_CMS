@@ -3,20 +3,20 @@ import API_URL from "../../api";
 import styles from "./DepartmentDashboard.module.css";
 
 function DepartmentDashboard({ user, onLogout }) {
-  const [complaints, setComplaints] = useState([]);
-  const [statusUpdates, setStatusUpdates] = useState({});
-  const token = localStorage.getItem("token");
+  const [complaints, setComplaints]=useState([]);
+  const [statusUpdates, setStatusUpdates]=useState({});
+  const token=localStorage.getItem("token");
 
-  /** Fetch complaints assigned to this department */
-  const fetchComplaints = async () => {
+  
+  const fetchComplaints=async () => {
     try {
-      const res = await fetch(`${API_URL}/department/complaints`, {
+      const res=await fetch(`${API_URL}/department/complaints`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
       if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
 
-      const data = await res.json();
+      const data=await res.json();
       setComplaints(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error("Error fetching complaints:", err);
@@ -27,14 +27,14 @@ function DepartmentDashboard({ user, onLogout }) {
     if (token) fetchComplaints();
   }, [token]);
 
-  /** Update status of a complaint */
-  const handleStatusUpdate = async (id) => {
-    const newStatus = statusUpdates[id];
+  
+  const handleStatusUpdate=async (id) => {
+    const newStatus=statusUpdates[id];
     if (!newStatus) return alert("Select a status");
 
     try {
-      // Backend route expects PUT /api/department/:id/status
-      const res = await fetch(`${API_URL}/department/${id}/status`, {
+
+      const res=await fetch(`${API_URL}/department/${id}/status`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -43,10 +43,9 @@ function DepartmentDashboard({ user, onLogout }) {
         body: JSON.stringify({ status: newStatus }),
       });
 
-      const data = await res.json();
+      const data=await res.json();
       if (data.message) alert(data.message);
 
-      // Refresh list after updating
       fetchComplaints();
 
       setStatusUpdates((prev) => ({ ...prev, [id]: "" }));

@@ -7,16 +7,16 @@ import DepartmentDashboard from "./components/department/DepartmentDashboard";
 import WelcomePage from "./components/WelcomePage";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null);
-  const [showSignup, setShowSignup] = useState(false);
-  const [showWelcome, setShowWelcome] = useState(true);
+  const [currentUser, setCurrentUser]=useState(null);
+  const [showSignup, setShowSignup]=useState(false);
+  const [showWelcome, setShowWelcome]=useState(true);
 
-  const handleLoginSuccess = (user) => {
+  const handleLoginSuccess=(user) => {
     setCurrentUser(user);
     setShowWelcome(false);
   };
 
-  const handleLogout = () => {
+  const handleLogout=() => {
     setCurrentUser(null);
     setShowSignup(false);
     setShowWelcome(true);

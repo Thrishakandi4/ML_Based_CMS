@@ -56,9 +56,9 @@
   color: #ffffff;
 }
 
-/* Table styling */
+
 .tableContainer {
-  max-height: 400px; /* vertical scrollbar */
+  max-height: 400px; 
   overflow-y: auto;
 }
 

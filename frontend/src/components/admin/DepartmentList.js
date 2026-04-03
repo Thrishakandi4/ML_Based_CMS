@@ -2,20 +2,19 @@ import React, { useEffect, useState } from "react";
 import API_URL from "../../api";
 
 function DepartmentList({ departments, setDepartments, fetchDepartments }) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [designation, setDesignation] = useState("");
-  const [password, setPassword] = useState("");
-  const token = localStorage.getItem("token");
+  const [name, setName]=useState("");
+  const [email, setEmail]=useState("");
+  const [phone, setPhone]=useState("");
+  const [designation, setDesignation]=useState("");
+  const [password, setPassword]=useState("");
+  const token=localStorage.getItem("token");
 
-  // fetchDepartments is now passed from parent
 
-  const handleAdd = async () => {
+  const handleAdd=async () => {
     if (!name || !email) return alert("Enter department name and email");
 
     try {
-      const res = await fetch(`${API_URL}/admin/departments`, {
+      const res=await fetch(`${API_URL}/admin/departments`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,7 +28,7 @@ function DepartmentList({ departments, setDepartments, fetchDepartments }) {
           password_hash: password,
         }),
       });
-      const data = await res.json();
+      const data=await res.json();
       alert(data.message || "Department added");
       setName("");
       setEmail("");
@@ -42,13 +41,13 @@ function DepartmentList({ departments, setDepartments, fetchDepartments }) {
     }
   };
 
-  const handleDelete = async (id) => {
+  const handleDelete=async (id) => {
     try {
-      const res = await fetch(`${API_URL}/admin/users/${id}?role=department`, {
+      const res=await fetch(`${API_URL}/admin/users/${id}?role=department`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
-      const data = await res.json();
+      const data=await res.json();
       alert(data.message);
       fetchDepartments();
     } catch (err) {

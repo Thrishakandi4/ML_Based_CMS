@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const departmentSchema = new mongoose.Schema(
+const departmentSchema=new mongoose.Schema(
     {
         name: {
             type: String,
@@ -31,5 +31,5 @@ const departmentSchema = new mongoose.Schema(
     { timestamps: true }
 );
 
-const Department = mongoose.model("Department", departmentSchema);
+const Department=mongoose.model("Department", departmentSchema);
 export default Department;

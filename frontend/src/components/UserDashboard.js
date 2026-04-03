@@ -4,14 +4,14 @@ import ComplaintList from "./user/ComplaintList";
 import styles from "./user/UserDashboard.module.css";
 
 function UserDashboard({ user, onLogout }) {
-  const [refresh, setRefresh] = useState(false);
-  const [activeTab, setActiveTab] = useState("add"); // "add" or "view"
+  const [refresh, setRefresh]=useState(false);
+  const [activeTab, setActiveTab]=useState("add"); 
 
-  const refreshList = () => setRefresh(!refresh);
+  const refreshList=() => setRefresh(!refresh);
 
   return (
     <div className={styles.container}>
-      {/* Navbar */}
+      
       <nav className={styles.navbar}>
         <div className={styles.navLeft}>
           <button
@@ -36,7 +36,7 @@ function UserDashboard({ user, onLogout }) {
       </nav>
 
       <main className={styles.main}>
-        {/* Add Complaint Form */}
+        
 <section
   className={`${styles.card} ${styles.formCard} ${
     activeTab !== "add" ? styles.hidden : ""
@@ -45,7 +45,7 @@ function UserDashboard({ user, onLogout }) {
   <AddComplaint userId={user.id} onAdded={refreshList} />
 </section>
 
-{/* View Complaints */}
+
 <section
   className={`${styles.card} ${styles.tableCard} ${
     activeTab !== "view" ? styles.hidden : ""

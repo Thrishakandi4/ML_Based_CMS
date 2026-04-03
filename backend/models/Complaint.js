@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const complaintSchema = new mongoose.Schema(
+const complaintSchema=new mongoose.Schema(
   {
     user_id: {
       type: mongoose.Schema.Types.ObjectId,
@@ -34,11 +34,9 @@ const complaintSchema = new mongoose.Schema(
       default: null,
     },
 
-    // -----------------------------
-    // AI MODEL OUTPUTS
-    // -----------------------------
 
-    // Priority from BERT model
+
+
     priority: {
       type: String,
       enum: ["High", "Medium", "Low", null],
@@ -49,7 +47,6 @@ const complaintSchema = new mongoose.Schema(
       default: null,
     },
 
-    // Summary from T5 / BART model
     summary: {
       type: String,
       default: null,
@@ -62,5 +59,5 @@ const complaintSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Complaint = mongoose.model("Complaint", complaintSchema);
+const Complaint=mongoose.model("Complaint", complaintSchema);
 export default Complaint;

@@ -3,20 +3,20 @@ import API_URL from "../../api";
 import styles from "./ComplaintList.module.css";
 
 function ComplaintList({ userId, refresh }) {
-  const [complaints, setComplaints] = useState([]);
-  const [editingId, setEditingId] = useState(null);
-  const [editTitle, setEditTitle] = useState("");
-  const [editDescription, setEditDescription] = useState("");
-  const [editType, setEditType] = useState("");
+  const [complaints, setComplaints]=useState([]);
+  const [editingId, setEditingId]=useState(null);
+  const [editTitle, setEditTitle]=useState("");
+  const [editDescription, setEditDescription]=useState("");
+  const [editType, setEditType]=useState("");
 
-  const token = localStorage.getItem("token");
+  const token=localStorage.getItem("token");
 
-  const fetchComplaints = async () => {
+  const fetchComplaints=async () => {
     try {
-      const res = await fetch(`${API_URL}/complaints/${userId}`, {
+      const res=await fetch(`${API_URL}/complaints/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      const data = await res.json();
+      const data=await res.json();
       setComplaints(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error("Fetch error:", err);
@@ -25,20 +25,20 @@ function ComplaintList({ userId, refresh }) {
 
   useEffect(() => {
     fetchComplaints();
-    const interval = setInterval(fetchComplaints, 5000);
+    const interval=setInterval(fetchComplaints, 5000);
     return () => clearInterval(interval);
   }, [userId, token]);
 
-  const startEdit = (c) => {
+  const startEdit=(c) => {
     setEditingId(c._id || c.id);
     setEditTitle(c.title);
     setEditDescription(c.description);
     setEditType(c.type);
   };
 
-  const handleEdit = async (id) => {
+  const handleEdit=async (id) => {
     try {
-      const res = await fetch(`${API_URL}/complaints/${id}`, {
+      const res=await fetch(`${API_URL}/complaints/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -51,7 +51,7 @@ function ComplaintList({ userId, refresh }) {
         }),
       });
 
-      const data = await res.json();
+      const data=await res.json();
       alert(data.message);
 
       setEditingId(null);
@@ -61,14 +61,14 @@ function ComplaintList({ userId, refresh }) {
     }
   };
 
-  const handleDelete = async (id) => {
+  const handleDelete=async (id) => {
     try {
-      const res = await fetch(`${API_URL}/complaints/${id}`, {
+      const res=await fetch(`${API_URL}/complaints/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
 
-      const data = await res.json();
+      const data=await res.json();
       alert(data.message);
       fetchComplaints();
     } catch (err) {
@@ -76,17 +76,16 @@ function ComplaintList({ userId, refresh }) {
     }
   };
 
-  // -------------------------------
-  // 🔵 NEW CARDS SECTION
-  // -------------------------------
-  const totalComplaints = complaints.length;
-  const completedComplaints = complaints.filter(
+
+
+  const totalComplaints=complaints.length;
+  const completedComplaints=complaints.filter(
     (c) => c.status  === "Resolved"
   ).length;
-  const inprogress = complaints.filter(
+  const inprogress=complaints.filter(
     (c) => c.status === "In Progress"
   ).length;
-  const pendingComplaints = complaints.filter(
+  const pendingComplaints=complaints.filter(
     (c) => c.status  === "Pending"
   ).length;
 
@@ -94,7 +93,7 @@ function ComplaintList({ userId, refresh }) {
     <div className={styles.listContainer}>
       <h2>Your Complaints</h2>
 
-      {/* 🔵 Added Stats Cards */}
+      
       <div className={styles.statsCardContainer}>
         <div className={styles.statsCard}>
           <h3>Total Complaints</h3>
@@ -135,7 +134,7 @@ function ComplaintList({ userId, refresh }) {
 
             <tbody>
               {complaints.map((c) => {
-                const cid = c._id || c.id;
+                const cid=c._id || c.id;
                 return editingId === cid ? (
                   <tr key={cid} className={styles.editRow}>
                     <td>{cid}</td>
@@ -209,8 +208,8 @@ function ComplaintList({ userId, refresh }) {
 
                     <td>
                       {(() => {
-                        const raw = c.status || "Pending";
-                        const statusKey = raw.toLowerCase().replace(/\s+/g, "-");
+                        const raw=c.status || "Pending";
+                        const statusKey=raw.toLowerCase().replace(/\s+/g, "-");
                         return (
                           <span
                             className={`${styles.status} ${

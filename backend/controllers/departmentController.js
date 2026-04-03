@@ -1,26 +1,24 @@
 import Complaint from "../models/Complaint.js";
 
-const send500 = (res, err, msg = "Database error") => {
+const send500=(res, err, msg="Database error") => {
   console.log("DB ERROR:", err);
   return res.status(500).json({ error: msg });
 };
 
-// Get complaints for this department
-export const getDepartmentComplaints = async (req, res) => {
+export const getDepartmentComplaints=async (req, res) => {
   if (req.user.role !== "department") {
     return res.status(403).json({ message: "Access denied" });
   }
 
-  const departmentId = req.user.id;
+  const departmentId=req.user.id;
 
   try {
-    let complaints = await Complaint.find({ department_id: departmentId })
+    let complaints=await Complaint.find({ department_id: departmentId })
       .populate("user_id", "name")
       .populate("department_id", "name designation")
       .sort({ createdAt: -1 });
 
-    // normalize documents for frontend (use `id` instead of `_id`)
-    complaints = complaints.map((c) => ({
+    complaints=complaints.map((c) => ({
       id: c._id,
       title: c.title,
       description: c.description,
@@ -39,20 +37,19 @@ export const getDepartmentComplaints = async (req, res) => {
   }
 };
 
-// Update Complaints Status
-export const updateComplaintStatus = async (req, res) => {
-  const { id } = req.params;
-  const { status } = req.body;
+export const updateComplaintStatus=async (req, res) => {
+  const { id }=req.params;
+  const { status }=req.body;
 
   if (!status) return res.status(400).json({ message: "Status required" });
 
-  const allowed = ["Pending", "In Progress", "Resolved", "Closed"];
+  const allowed=["Pending", "In Progress", "Resolved", "Closed"];
   if (!allowed.includes(status)) {
     return res.status(400).json({ message: "Invalid status" });
   }
 
   try {
-    const complaint = await Complaint.findByIdAndUpdate(
+    const complaint=await Complaint.findByIdAndUpdate(
       id,
       { status },
       { new: true }
@@ -62,12 +59,10 @@ export const updateComplaintStatus = async (req, res) => {
       return res.status(404).json({ message: "Complaint not found" });
     }
 
-    // complaint.department_id may be null; guard before calling toString()
     if (!complaint.department_id || complaint.department_id.toString() !== req.user.id) {
       return res.status(403).json({ message: "Complaint not assigned to you" });
     }
 
-    // return updated complaint for frontend convenience
     res.json({ message: "Status updated successfully", complaint: {
       id: complaint._id,
       status: complaint.status,

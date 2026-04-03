@@ -1,15 +1,15 @@
 import nodemailer from "nodemailer";
 
-const transporter = nodemailer.createTransport({
-  service: "gmail", // You can change to your email provider
+const transporter=nodemailer.createTransport({
+  service: "gmail", 
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
 });
 
-export const sendDepartmentCredentials = async (to, email, password) => {
-  const mailOptions = {
+export const sendDepartmentCredentials=async (to, email, password) => {
+  const mailOptions={
     from: process.env.EMAIL_USER,
     to,
     subject: "Your Department Account Credentials",

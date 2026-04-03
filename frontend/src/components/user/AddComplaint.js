@@ -3,25 +3,25 @@ import API_URL from "../../api";
 import styles from "./AddComplaint.module.css";
 
 function AddComplaint({ userId, onAdded }) {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [type, setType] = useState("Network Issue");
+  const [title, setTitle]=useState("");
+  const [description, setDescription]=useState("");
+  const [type, setType]=useState("Network Issue");
 
-  const token = localStorage.getItem("token"); // ✅ Get token
+  const token=localStorage.getItem("token"); 
 
-  const handleSubmit = async (e) => {
+  const handleSubmit=async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`${API_URL}/complaints`, {
+      const res=await fetch(`${API_URL}/complaints`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`, // ✅ Include token
+          "Authorization": `Bearer ${token}`, 
         },
-        body: JSON.stringify({ title, description, type }), // user_id not needed if backend uses JWT
+        body: JSON.stringify({ title, description, type }), 
       });
 
-      const data = await res.json();
+      const data=await res.json();
       alert(data.message || "Complaint submitted");
       onAdded();
       setTitle("");

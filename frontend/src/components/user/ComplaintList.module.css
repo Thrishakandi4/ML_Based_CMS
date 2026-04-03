@@ -5,26 +5,26 @@
    
 }
 
-/* WRAPPER: vertical scroll only */
+
 .tableWrapper {
-  max-height: 450px;       /* control this to show desired rows before scrollbar */
+  max-height: 450px;       
   overflow-y: auto;
-  overflow-x: hidden;      /* important — hide horizontal scroll */
+  overflow-x: hidden;      
   margin-top: 0;
   border-radius: 12px;
   border: 1.5px solid #3a3a3a;
   background: #252525;
 }
 
-/* TABLE fits container, fixed layout prevents horizontal overflow */
+
 .table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed; 
-  background-color: #011425 ;/* key to prevent horizontal scroll */
+  background-color: #011425 ;
 }
 
-/* HEADERS */
+
 .table th {
   background-color: #1a1a1a;
   color: #ffffff;
@@ -36,41 +36,41 @@
   font-size: 14px;
 }
 
-/* CELLS */
+
 .table td {
   padding: 14px 12px;
   border-bottom: 1px solid #3a3a3a;
   vertical-align: middle;
-  word-wrap: break-word; /* allow wrap within fixed layout */
+  word-wrap: break-word; 
   color: #e8e8e8;
   font-size: 14px;
 }
 
-/* truncate long text with ellipsis where specified */
+
 .titleCell, .descriptionCell {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap; /* single line with ellipsis */
+  white-space: nowrap; 
 }
 
-/* make description allow a bit more width but still ellipsize */
+
 .descriptionCell {
   white-space: nowrap;
 }
 
-/* For small screens: allow description to wrap instead of forcing horizontal scroll */
+
 @media (max-width: 700px) {
   .descriptionCell {
-    white-space: normal; /* wrap on small screens */
+    white-space: normal; 
   }
 }
 
-/* hover row */
+
 .table tr:hover {
   background-color: #011425 ;
 }
 
-/* buttons */
+
 .button {
   margin-right: 5px;
   padding: 6px 10px;
@@ -100,7 +100,7 @@
   background-color: #666666;
 }
 
-/* status badges */
+
 .status {
   padding: 5px 8px;
   border-radius: 4px;
@@ -114,7 +114,7 @@
 .resolved { background-color: #1f4959; }
 .closed { background-color: #1f4959; }
 
-/* input/select/textarea styles used in edit row */
+
 .input, .select, .textarea {
   width: 100%;
   padding: 6px;

@@ -2,17 +2,17 @@ import React, { useEffect, useState } from "react";
 import API_URL from "../../api";
 
 function ComplaintOverview() {
-  const [complaints, setComplaints] = useState([]);
+  const [complaints, setComplaints]=useState([]);
 
   useEffect(() => {
-    const fetchComplaints = async () => {
+    const fetchComplaints=async () => {
       try {
-        const res = await fetch(`${API_URL}/admin/complaints`,{
+        const res=await fetch(`${API_URL}/admin/complaints`,{
           headers: {
     "Authorization": `Bearer ${localStorage.getItem("token")}`
   }
         });
-        const data = await res.json();
+        const data=await res.json();
         setComplaints(data);
       } catch (err) {
         console.error(err);
@@ -21,13 +21,13 @@ function ComplaintOverview() {
     fetchComplaints();
   }, []);
 
-  const handleStatusChange = async (id, status) => {
+  const handleStatusChange=async (id, status) => {
   try {
     await fetch(`${API_URL}/admin/complaints/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${localStorage.getItem("token")}` // <-- add this
+        "Authorization": `Bearer ${localStorage.getItem("token")}` 
       },
       body: JSON.stringify({ status }),
     });

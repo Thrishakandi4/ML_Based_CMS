@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import API_URL from "../../api";
 
-const DepartmentCategoryManager = () => {
-  const [departments, setDepartments] = useState([]);
-  const [selectedDept, setSelectedDept] = useState("");
-  const [categories, setCategories] = useState([]);
-  const [newCategories, setNewCategories] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
+const DepartmentCategoryManager=() => {
+  const [departments, setDepartments]=useState([]);
+  const [selectedDept, setSelectedDept]=useState("");
+  const [categories, setCategories]=useState([]);
+  const [newCategories, setNewCategories]=useState("");
+  const [loading, setLoading]=useState(false);
+  const [message, setMessage]=useState("");
 
   useEffect(() => {
     fetch(`${API_URL}/admin/departments`, {
@@ -33,13 +33,13 @@ const DepartmentCategoryManager = () => {
     }
   }, [selectedDept]);
 
-  const handleAssign = async (e) => {
+  const handleAssign=async (e) => {
     e.preventDefault();
     if (!selectedDept || !newCategories.trim()) return;
     setLoading(true);
     setMessage("");
-    const cats = newCategories.split(",").map(c => c.trim()).filter(Boolean);
-    const res = await fetch(`${API_URL}/admin/departments/categories`, {
+    const cats=newCategories.split(",").map(c => c.trim()).filter(Boolean);
+    const res=await fetch(`${API_URL}/admin/departments/categories`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +47,7 @@ const DepartmentCategoryManager = () => {
       },
       body: JSON.stringify({ departmentId: selectedDept, categories: cats })
     });
-    const data = await res.json();
+    const data=await res.json();
     setMessage(data.message || "Categories updated");
     setNewCategories("");
     setLoading(false);

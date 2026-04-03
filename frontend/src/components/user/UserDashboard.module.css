@@ -1,4 +1,4 @@
-/* Container for the whole dashboard */
+
  
 .container {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -9,7 +9,7 @@
   
 }
 
-/* Navigation bar */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -84,7 +84,7 @@
   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
 }
 
-/* Main layout */
+
 .main {
   display: flex;
   flex-direction: column;
@@ -95,7 +95,7 @@
   width: 95%;
 }
 
-/* Card style for form */
+
 .card {
   background-color:#1f4959;
   padding: 20px;
@@ -106,26 +106,26 @@
   border: 1px solid #444;
 }
 
-/* Specific styling for the form card to reduce width and center */
+
 .formCard {
   width: 40%;
   
-  /* Increased max-width to allow a wider form on larger screens */
-  max-width: 1100px; /* increased width for form */
+  
+  max-width: 1100px; 
 }
 
 .tableCard {
   width: 100%;
-  /* Allow table card to use the full width of the parent (no cap) */
+  
   max-width: none;
-  /* Ensure it stretches inside the flex parent */
+  
   align-self: stretch;
-  /* Keep no constrained height so page scrolls naturally */
+  
   overflow-y: visible;
   max-height: none;
 }
 
-/* Buttons inside cards */
+
 .button {
   margin-top: 10px;
   background-color: #011425;
@@ -142,7 +142,7 @@
   background-color: #555555;
 }
 
-/* Optional: adjust grid inside table card if needed */
+
 .table {
   width: 100%;
   border-collapse: collapse;

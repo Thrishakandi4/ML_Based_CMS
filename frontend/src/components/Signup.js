@@ -3,26 +3,25 @@ import API_URL from "../api";
 import styles from "./Signup.module.css";
 
 function Signup({ onLoginClick, onWelcomeClick }) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [role, setRole] = useState("user");
-  const [departmentFields, setDepartmentFields] = useState({
+  const [name, setName]=useState("");
+  const [email, setEmail]=useState("");
+  const [password, setPassword]=useState("");
+  const [role, setRole]=useState("user");
+  const [departmentFields, setDepartmentFields]=useState({
     phone: "",
     designation: "",
   });
 
-  const handleSignup = async (e) => {
+  const handleSignup=async (e) => {
     e.preventDefault();
 
-    // Check department fields if role is department
     if (role === "department") {
       if (!departmentFields.phone || !departmentFields.designation) {
         return alert("Please fill all department fields");
       }
     }
 
-    const payload = {
+    const payload={
       name,
       email,
       password,
@@ -31,13 +30,13 @@ function Signup({ onLoginClick, onWelcomeClick }) {
     };
 
     try {
-      const res = await fetch(`${API_URL}/auth/signup`, {
+      const res=await fetch(`${API_URL}/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
-      const data = await res.json();
+      const data=await res.json();
       alert(data.message);
 
       if (res.ok) {
@@ -89,7 +88,7 @@ function Signup({ onLoginClick, onWelcomeClick }) {
           >
             <option value="user">User</option>
             <option value="admin">Admin</option>
-            {/* Department signup removed; only admin can create departments */}
+            
           </select>
           <input
             type="email"
@@ -107,8 +106,8 @@ function Signup({ onLoginClick, onWelcomeClick }) {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          {/* Removed duplicate select for role */}
-          {/* Additional fields for department */}
+          
+          
           {role === "department" && (
             <>
               <input

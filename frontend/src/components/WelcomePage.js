@@ -1,7 +1,7 @@
 import React from "react";
 import './WelcomePage.css';
 
-const WelcomePage = ({ onLoginClick, onSignupClick }) => {
+const WelcomePage=({ onLoginClick, onSignupClick }) => {
   return (
     <div className="welcome-container">
       <nav className="welcome-navbar">
